@@ -1,0 +1,69 @@
+html{
+    width: 100%;
+}
+body{
+    width: 100%;
+}
+h3{
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+.content{
+    width: 600px;
+    margin: auto;
+}
+p.attention {
+    color: #999;
+    font-size: small;
+    margin-bottom: 5px;
+}
+.array-status{
+    width: 600px;
+}
+li#array-list{
+    text-align: center;
+}
+ul#array{
+    width: 200px;
+    height: 700px;
+    overflow: scroll;
+    overflow-x: hidden;
+    float: right;
+    border-radius: 5px;
+}
+div.button-and-result-area{
+    width: 350px;
+    margin: 0 25px;
+    float: left;
+}
+button{
+    width: 350px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    .content{
+        width: 95%;
+    }
+    .array-status{
+        width: 100%;
+    }
+    ul#array{
+        width: 100%;
+        clear: both;
+    }
+    div.button-and-result-area{
+        width: 100%;
+        margin: auto;
+        clear: both;
+    }
+    button{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .result-area{
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+                <title>sort program</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="form-group" id="sort-type">
+                <h3>ソートアルゴリズムの計算時間</h3>
+                <label for="sort-select">ソートの種類を選択：</label>
+                <select v-model="selected" class="form-control" id="sort-select">
+                    <option v-for="option in options" v-bind:value="option.id">
+                        {{ option.text }}
+                    </option>
+                </select>
+                <span>selected: {{ options[selected].text }}<br></span>
+            </div>
+            <div class="button-and-result-area">
+                <div class="attention">
+                    <p class="attention">※配列の非表示には時間がかかります。</p>
+                    <p class="attention">※ソートの前にはシャッフルが入ります。</p>
+                </div>
+                <div class="button-area" id="button-area">
+                    <button v-on:click="invisible()" id="invisible" type="button" class="btn btn-success btn-lg">配列の表示/非表示</button> 
+                    <button v-on:click="shuffleArray()" id="shuffle" type="button" class="btn btn-success btn-lg">シャッフル</button>
+                    <button v-on:click="startSort()" id="start-sort" type="button" class="btn btn-primary btn-lg">ソート開始</button>
+                </div>
+                <div class="result-area" id="result-area">
+                    <h4>result</h4>
+                    <ul class="list-group">
+                        <li v-for="value in options" class="list-group-item">
+                            {{ value.text }}<span class="badge badge-secondary badge-info badge-pill float-right">{{ value.time }}ミリ秒</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="array-status">
+                <ul id="array" class="list-group">
+                    <li id="array-list" v-if="seen" v-for="variable of array" :key="variable.id" class="list-group-item list-group-item-info">
+                        {{ variable.value }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="js/sort.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
