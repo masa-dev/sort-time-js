@@ -106,7 +106,6 @@ let button = new Vue({
     }
 });
 
-
 let buff = [];
 let randomArray = [];
 for(let i = 0; i < 30000; i++) {
