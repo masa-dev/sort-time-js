@@ -21,7 +21,6 @@
             </div>
             <div class="button-and-result-area">
                 <div class="attention">
-                    <p class="attention">※配列の非表示には時間がかかる場合があります。</p>
                     <p class="attention">※ソートの前にはシャッフルが入ります。</p>
                 </div>
                 <div class="button-area" id="button-area">
@@ -40,7 +39,13 @@
             </div>
             <div id="array-status">
                 <ul id="array" v-if="seen" class="list-group">
-                    <li id="array-list" v-for="variable of array" :key="variable.id" class="list-group-item list-group-item-info">
+                    <li v-for="variable in firstArray" :key="variable.id" class="array-list list-group-item list-group-item-info">
+                        {{ variable.value }}
+                    </li>
+                    <li class="array-list list-group-item list-group-item-info">：</li>
+                    <li class="array-list list-group-item list-group-item-info">：</li>
+                    <li class="array-list list-group-item list-group-item-info">：</li>
+                    <li v-for="variable in lastArray" :key="variable.id" class="array-list list-group-item list-group-item-info">
                         {{ variable.value }}
                     </li>
                 </ul>

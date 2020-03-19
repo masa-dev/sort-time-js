@@ -22,7 +22,7 @@ p.attention {
 .array-status{
     width: 600px;
 }
-li#array-list{
+li.array-list{
     text-align: center;
 }
 ul#array{

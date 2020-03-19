@@ -16,21 +16,29 @@ let sortType = new Vue({
 let targetArray = new Vue({
     el: '#array',
     data: {
-        array: [],
+        firstArray: [],
+        lastArray: [],
         seen: true
     },
     methods: {
         initArray: function(array) {
-            for(let i = 0; i < array.length; i++) {
-                this.array.push({ id: i, value: array[i]});
+            let array_length = array.length;
+            for(let i = 0; i < 100; i++) {
+                this.firstArray.push({ id: i, value: array[i]});
+                this.lastArray.push({id: i, value: array[(array_length-100)+i]});
             }
         },
-        changeValue: function(id, newValue) {
-            this.$set(this.array[id], 'value', newValue);
+        changeFirstValue: function(id, newValue) {
+            this.$set(this.firstArray[id], 'value', newValue);
+        },
+        changeLastValue: function(id, newValue) {
+            this.$set(this.lastArray[id], 'value', newValue);
         },
         updateArray: function(array) {
-            for(let i = 0; i < array.length; i++) {
-                this.changeValue(i, array[i]);
+            let array_length = array.length;
+            for(let i = 0; i < 100; i++) {
+                this.changeFirstValue(i, array[i]);
+                this.changeLastValue(i, array[(array_length-100)+i]);
             }
         }
     }
