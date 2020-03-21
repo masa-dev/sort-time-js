@@ -97,13 +97,17 @@ let button = new Vue({
                     break;
                 case 5:
                     bubbleSort(randomArray);
+                    break;
                 case 6:
                     heapSort(randomArray);
+                    break;
                 default:
                     break;
             }
             endTime = Date.now();
             targetArray.updateArray(randomArray);
+
+            if(sortCheck(randomArray) == false) {console.log(sortType.options[selected].text + ': false');}
 
             difference = endTime - startTime;
             sortType.options[selected].time = difference;

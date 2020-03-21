@@ -97,8 +97,8 @@ function mergeSort(start,end) {
 }
 
 function bubbleSort(array) {
-    for(i = 0; i < array.length -1; i++) {
-        for(j = array.length; j >= i + 1; j--) {
+    for(let i = 0; i < array.length-1; i++) {
+        for(let j = array.length; j >= i+1; j--) {
             if(array[j] < array[j-1]) {
                 [array[j], array[j-1]] = [array[j-1], array[j]];
             }   
@@ -111,14 +111,14 @@ function heapSort(array) {
     let size, k, big;
     let arrayLength = array.length;
     //ヒープへの格納
-    size = heap.length - 1;
-    for(let temp of array) {
+    size = heap.length-1;
+    for(const temp of array) {
         heap.push(temp);
         size++;
         k = size;
-        while(heap[k] > heap[k/2] && k > 1) {
-            [heap[k], heap[k/2]] = [heap[k/2], heap[k]];
-            k /= 2;
+        while(heap[k] > heap[Math.floor(k/2)] && k > 1) {
+            [heap[k], heap[Math.floor(k/2)]] = [heap[Math.floor(k/2)], heap[k]];
+            k = Math.floor(k/2);
         }
     }
     //最大値の取り出し
