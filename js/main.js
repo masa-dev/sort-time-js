@@ -117,6 +117,9 @@ let button = new Vue({
     }
 });
 
+if(window.innerWidth < 600) {
+    targetArray.seen = false;
+}
 
 let buff = [];
 let randomArray = [];
