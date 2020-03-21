@@ -26,7 +26,8 @@
                 <div class="button-area" id="button-area">
                     <button v-on:click="invisible()" id="invisible" type="button" class="btn btn-success btn-lg">配列の表示/非表示</button> 
                     <button v-on:click="shuffleArray()" id="shuffle" type="button" class="btn btn-success btn-lg">シャッフル</button>
-                    <button v-on:click="startSort()" id="start-sort" type="button" class="btn btn-primary btn-lg">ソート開始</button>
+                    <button v-on:click="startSort(sortType.selected)" id="start-sort" type="button" class="btn btn-primary btn-lg">ソート開始</button>
+                    <button v-on:click="doAllSorts()" id="do-all-sort" type="button" class="btn btn-primary btn-lg">全ソート開始</button>
                 </div>
                 <div class="result-area" id="result-area">
                     <h4>result</h4>

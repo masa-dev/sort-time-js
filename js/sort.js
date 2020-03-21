@@ -96,6 +96,66 @@ function mergeSort(start,end) {
 	while (j < p) randomArray[k++] = buff[j++];
 }
 
+function bubbleSort(array) {
+    for(i = 0; i < array.length -1; i++) {
+        for(j = array.length; j >= i + 1; j--) {
+            if(array[j] < array[j-1]) {
+                [array[j], array[j-1]] = [array[j-1], array[j]];
+            }   
+        }
+    }
+}
+
+function heapSort(array) {
+    let heap = [null];  //heap[0]は使わないため、nullで埋めておく
+    let size, k, big;
+    let arrayLength = array.length;
+    //ヒープへの格納
+    size = heap.length - 1;
+    for(let temp of array) {
+        heap.push(temp);
+        size++;
+        k = size;
+        while(heap[k] > heap[k/2] && k > 1) {
+            [heap[k], heap[k/2]] = [heap[k/2], heap[k]];
+            k /= 2;
+        }
+    }
+    //最大値の取り出し
+    size = heap.length - 1;
+    for(let i = arrayLength - 1; i >= 0; i--) {
+        array[i] = heap[1]; //最大値を元の配列に格納
+        heap[1] = heap[size];
+        heap.pop();         //heap[size] を空にする
+        size--;
+        k = 1;
+        while(2*k <= size) {
+            if(2*k == size) {
+                if(heap[k] < heap[2*k]) {
+                    [heap[k], heap[2*k]] = [heap[2*k], heap[k]];
+                    k *= 2;
+                } else {
+                    break;
+                }
+            }
+            else {
+                if(heap[2*k] > heap[2*k+1]) {
+                    big = 2*k;
+                } else {
+                    big = 2*k+1;
+                }
+                if(heap[k] < heap[big]) {
+                    [heap[k], heap[big]] = [heap[big], heap[k]];
+                    k = big;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+}
+
+/*
 function passOnce(){
     //クイックソートとマージソートだけ１回目が時間がかかるため一回通す
     shuffle(randomArray);
@@ -103,3 +163,4 @@ function passOnce(){
     shuffle(randomArray);
     mergeSort(0,randomArray.length-1);    
 }
+*/

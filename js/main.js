@@ -8,7 +8,9 @@ let sortType = new Vue({
             { id: 1, text: '選択ソート', time: null },
             { id: 2, text: '挿入ソート', time: null },
             { id: 3, text: 'クイックソート', time: null },
-            { id: 4, text: 'マージソート', time: null }
+            { id: 4, text: 'マージソート', time: null },
+            { id: 5, text: 'バブルソート', time: null },
+            { id: 6, text: 'ヒープソート', time: null }
         ]
     }
 });
@@ -68,7 +70,7 @@ let button = new Vue({
             shuffle(randomArray);
             targetArray.updateArray(randomArray);
         },
-        startSort: function() {
+        startSort: function(selected) {
             let startTime, endTime, difference;
 
             //シャッフル
@@ -77,7 +79,7 @@ let button = new Vue({
 
             //ソート
             startTime = Date.now();
-            switch(sortType.selected) {
+            switch(selected) {
                 case 0:
                     defaultSort(randomArray);
                     break;
@@ -93,6 +95,10 @@ let button = new Vue({
                 case 4:
                     mergeSort(0, randomArray.length-1);
                     break;
+                case 5:
+                    bubbleSort(randomArray);
+                case 6:
+                    heapSort(randomArray);
                 default:
                     break;
             }
@@ -100,17 +106,23 @@ let button = new Vue({
             targetArray.updateArray(randomArray);
 
             difference = endTime - startTime;
-            sortType.options[sortType.selected].time = difference;
+            sortType.options[selected].time = difference;
             result.updateResult();
+        },
+        doAllSorts: function() {
+            for(let i = 0; i < sortType.options.length; i++) {
+                this.startSort(i);
+            }
         }
     }
 });
+
 
 let buff = [];
 let randomArray = [];
 for(let i = 0; i < 30000; i++) {
     randomArray[i] = i;
 }
-passOnce(); //クイックソートとマージソートを一回通す
+//passOnce(); //クイックソートとマージソートを一回通す
 shuffle(randomArray);
 targetArray.initArray(randomArray);
