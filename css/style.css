@@ -24,6 +24,11 @@ p.attention {
 .array-status{
     width: 600px;
 }
+#result-list{
+    height: 320px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
 li.array-list{
     text-align: center;
 }
@@ -43,6 +48,9 @@ div.button-and-result-area{
 button{
     width: 350px;
     margin-bottom: 20px;
+}
+#graph-area {
+    width: 600px;
 }
 
 @media only screen and (max-width: 600px){
@@ -67,5 +75,8 @@ button{
     }
     .result-area{
         margin-bottom: 10px;
+    }
+    #graph-area{
+        width: 100%;
     }
 }

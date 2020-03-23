@@ -117,6 +117,8 @@ let button = new Vue({
             for(let i = 0; i < sortType.options.length; i++) {
                 this.startSort(i);
             }
+            destroyChart();
+            drawChart();
         }
     }
 });
