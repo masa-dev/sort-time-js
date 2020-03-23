@@ -2,6 +2,12 @@ function drawChart() {
     let ctx = document.getElementById('chart').getContext('2d');
     let sortName = [];
     let sortTime = [];
+    let bool;
+    if(window.innerWidth < 600) {
+        bool = false;
+    } else {
+        bool = true;
+    }
     for(let temp of sortType.options) {
         let str = temp.text;
         str = str.replace('の', '');
@@ -27,7 +33,7 @@ function drawChart() {
         },
         options: {
             title: {
-                display: true,
+                display: bool,  //ウインドウの横幅でタイトルを表示するか決める
                 text: 'ソートアルゴリズムの計算時間'
             },
             scales: {
@@ -44,6 +50,7 @@ function drawChart() {
         }
     })
 }
+
 function destroyChart() {
     //定義されているか判別
     if(typeof myChart !== 'undefined') {
