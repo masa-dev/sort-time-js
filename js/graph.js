@@ -3,12 +3,13 @@ function drawChart() {
     let sortName = [];
     let sortTime = [];
     for(let temp of sortType.options) {
-        temp.text = temp.text.replace('の', '');
-        temp.text = temp.text.replace('ソート', '');
-        sortName.push(temp.text);
+        let str = temp.text;
+        str = str.replace('の', '');
+        str = str.replace('ソート', '');
+        sortName.push(str);
     }
     for(let temp of sortType.options) {
-        sortTime.push(temp.time);
+        sortTime.push(temp.time/1000);  //秒（s）で表示する
     }
 
     //グローバル変数で宣言
@@ -33,9 +34,9 @@ function drawChart() {
                 yAxes: [{
                     ticks: {
                         suggestedMin: 0,
-                        stepSize: 500,
-                        callback: function(value, index, values) {
-                            return value + 'ms'
+                        stepSize: 1,
+                        callback: function(value) { //(value, index, values)
+                            return value + 's'
                         }
                     }
                 }]

@@ -57,6 +57,9 @@ button{
     .content{
         width: 95%;
     }
+    .form-group{
+        margin-bottom: 5px;
+    }
     .array-status{
         width: 100%;
     }
