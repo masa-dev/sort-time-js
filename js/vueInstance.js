@@ -9,8 +9,9 @@ let sortType = new Vue({
             { id: 2, text: '挿入ソート', time: null },
             { id: 3, text: 'クイックソート', time: null },
             { id: 4, text: 'マージソート', time: null },
-            { id: 5, text: 'バブルソート', time: null },
-            { id: 6, text: 'ヒープソート', time: null }
+            { id: 5, text: 'ヒープソート', time: null },
+            { id: 6, text: 'バブルソート', time: null },
+            { id: 7, text: 'シェーカーソート', time: null }
         ]
     }
 });
@@ -29,6 +30,10 @@ let targetArray = new Vue({
                 this.firstArray.push({ id: i, value: array[i]});
                 this.lastArray.push({id: i, value: array[(array_length-100)+i]});
             }
+        },
+        deleteArray: function() {
+            this.firstArray.splice(0, this.firstArray.length);
+            this.lastArray.splice(0, this.lastArray.length)
         },
         changeFirstValue: function(id, newValue) {
             this.$set(this.firstArray[id], 'value', newValue);
@@ -96,10 +101,13 @@ let button = new Vue({
                     mergeSort(0, randomArray.length-1);
                     break;
                 case 5:
-                    bubbleSort(randomArray);
+                    heapSort(randomArray);
                     break;
                 case 6:
-                    heapSort(randomArray);
+                    bubbleSort(randomArray);
+                    break;
+                case 7:
+                    shakerSort(randomArray);
                     break;
                 default:
                     break;

@@ -16,7 +16,10 @@ h4{
     width: 600px;
     margin: auto;
 }
-p.attention {
+.form-group{
+    margin-bottom: 10px;
+}
+p.attention{
     color: #999;
     font-size: small;
     margin-bottom: 5px;
@@ -25,7 +28,7 @@ p.attention {
     width: 600px;
 }
 #result-list{
-    height: 320px;
+    height: 323px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -47,7 +50,7 @@ div.button-and-result-area{
 }
 button{
     width: 350px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 #graph-area {
     width: 600px;

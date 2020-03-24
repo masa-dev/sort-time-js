@@ -97,8 +97,9 @@ function mergeSort(start,end) {
 }
 
 function bubbleSort(array) {
-    for(let i = 0; i < array.length-1; i++) {
-        for(let j = array.length; j >= i+1; j--) {
+    let arrayLength = array.length;
+    for(let i = 0; i < arrayLength-1; i++) {
+        for(let j = arrayLength; j >= i+1; j--) {
             if(array[j] < array[j-1]) {
                 [array[j], array[j-1]] = [array[j-1], array[j]];
             }   
@@ -152,6 +153,28 @@ function heapSort(array) {
                 }
             }
         }
+    }
+}
+
+function shakerSort(array) {
+    let start = 0;
+    let end = array.length - 1;
+
+    while(true) {
+        for(let i = start; i < end; i++) {
+            if(array[i] > array[i+1]) {
+                [array[i], array[i+1]] = [array[i+1], array[i]];
+            }
+        }
+        end--;
+        if(start === end) break;
+        for(let i = end; i > start; i--) {
+          if(array[i-1] > array[i]) {
+            [array[i-1], array[i]] = [array[i], array[i-1]];
+          }
+        }
+        start++;
+        if(start === end) break;
     }
 }
 

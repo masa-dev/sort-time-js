@@ -3,6 +3,7 @@ function drawChart() {
     let sortName = [];
     let sortTime = [];
     let bool;
+    
     if(window.innerWidth < 600) {
         bool = false;
     } else {
@@ -24,7 +25,7 @@ function drawChart() {
         data: {
             labels: sortName,
             datasets: [{
-                label: 'n=30000',
+                label: 'n='+arrayLength,
                 data: sortTime,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -40,7 +41,7 @@ function drawChart() {
                 yAxes: [{
                     ticks: {
                         suggestedMin: 0,
-                        stepSize: 1,
+                        //stepSize: 1,
                         callback: function(value) { //(value, index, values)
                             return value + 's'
                         }

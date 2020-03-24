@@ -6,7 +6,8 @@ if(window.innerWidth < 600) {
 //マージソート用のバッファ
 let buff = [];
 let randomArray = [];
-for(let i = 0; i < 30000; i++) {
+let arrayLength = 5000;
+for(let i = 0; i < arrayLength; i++) {
     randomArray[i] = i;
 }
 //passOnce(); //クイックソートとマージソートを一回通す
