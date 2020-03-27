@@ -10,6 +10,7 @@ function reinitOriginArray() {
     for(let i = 0; i < arrayLength; i++) {
         randomArray[i] = i;
     }
+    shuffle(randomArray);
     targetArray.deleteArray();
     targetArray.initArray(randomArray);    
 }

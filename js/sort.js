@@ -76,14 +76,14 @@ function insertSort(array) {
 
 function mergeSort(start,end) {
 	if(start >= end) return;
-	var mid = Math.floor((start + end) / 2);
+	let mid = Math.floor((start + end) / 2);
 	mergeSort(start,mid);
 	mergeSort(mid+1,end);
-	var p = 0;
+	let p = 0, i;
 	for (i=start; i<=mid; i++) buff[p++] = randomArray[i];
-	var i = mid + 1;
-	var j = 0;
-	var k = start;
+	i = mid + 1;
+	let j = 0;
+	let k = start;
 	while ((i<=end) && (j<p))
 	{
 		if (buff[j] <= randomArray[i])
@@ -176,6 +176,67 @@ function shakerSort(array) {
         start++;
         if(start === end) break;
     }
+}
+
+function radixSort(array) { //基数ソート
+    let bucket = [], i, j, n, digit, r = 1;
+    let maxDigit = 0;
+    //10このバケツを用意
+    for(i = 0; i < 10; i++) {
+        bucket[i] = []
+    }
+    //最大桁数
+    for(i = 0; i < array.length; i++) {
+        if(maxDigit < array[i].toString(10).length) {
+            maxDigit = array[i].toString(10).length;
+        }
+    }
+    for(digit = 1; digit <= maxDigit; ++digit) {
+        for(i = 0; i < array.length; i++) {
+            bucket[(array[i] / r) % 10 | 0].push(array[i]);
+        }
+        for(i = 0, j = 0; j < bucket.length; j++) {
+            if(bucket[j] === undefined) {
+                continue;
+            }
+            for(n = 0; n < bucket[j].length; n++) {
+                array[i++] = bucket[j][n];
+            }
+        }
+        for(i = 0; i < bucket.length; i++) {
+            bucket[i] = [];
+        }
+        r *= 10;
+    }
+}
+
+function bucketSort(array){
+    //要素間の全順序関係を用いるソートとは異なり、キーの取りうる値がk種類である、という入力により強い制限を要求するソート
+    
+	// バケツ
+	let bucket = [];
+	
+	// バケツに入れる数字の数を足し込む
+	for(let i=0; i<array.length; i++){
+		if(typeof bucket[array[i]] == "undefined"){
+			bucket[array[i]] = 1;
+		}
+		else{
+			bucket[array[i]]++;
+		}
+	}
+    
+    //元の配列に入れ直すために配列wp削除する
+    //入れなおさない場合は新しく配列を作成する
+    array.splice(0, array.length);
+    
+	// 数字の入っている数分配列データを作成
+	for(let i=0; i<bucket.length; i++){
+		if(!bucket[i]){continue}
+		for(let j=0; j<bucket[i]; j++){
+			array.push(i);
+		}
+	}
 }
 
 /*

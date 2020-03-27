@@ -4,14 +4,16 @@ let sortType = new Vue({
     data: {
         selected: 0,
         options: [
-            { id: 0, text: 'デフォルトのソート', time: null },
-            { id: 1, text: '選択ソート', time: null },
-            { id: 2, text: '挿入ソート', time: null },
-            { id: 3, text: 'クイックソート', time: null },
-            { id: 4, text: 'マージソート', time: null },
-            { id: 5, text: 'ヒープソート', time: null },
-            { id: 6, text: 'バブルソート', time: null },
-            { id: 7, text: 'シェーカーソート', time: null }
+            { id: 0, time: null, text: 'デフォルトのソート' },
+            { id: 1, time: null, text: '選択ソート' },
+            { id: 2, time: null, text: '挿入ソート' },
+            { id: 3, time: null, text: 'クイックソート' },
+            { id: 4, time: null, text: 'マージソート' },
+            { id: 5, time: null, text: 'ヒープソート' },
+            { id: 6, time: null, text: 'バブルソート' },
+            { id: 7, time: null, text: 'シェーカーソート' },
+            { id: 8, time: null, text: '基数ソート' },
+            { id: 9, time: null, text: 'バケットソート' }
         ]
     }
 });
@@ -108,6 +110,12 @@ let button = new Vue({
                     break;
                 case 7:
                     shakerSort(randomArray);
+                    break;
+                case 8:
+                    radixSort(randomArray);
+                    break;
+                case 9:
+                    bucketSort(randomArray);
                     break;
                 default:
                     break;
