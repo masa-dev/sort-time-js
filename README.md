@@ -25,7 +25,7 @@
 | 基数ソート(LSD) | k*n/s | k*n/s |
 | バケットソート | n+k | n^2 |
 
-※ LSD : LSD基数ソートは下の桁数（0 の位）からソートする奇数ソートのこと<br>
+※ LSD : LSD基数ソートは下の桁数（0 の位）からソートする基数ソートのこと<br>
 ※ k : 桁数<br>
 参考 : [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%BC%E3%83%88)
 
