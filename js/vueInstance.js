@@ -123,7 +123,9 @@ let button = new Vue({
             endTime = Date.now();
             targetArray.updateArray(randomArray);
 
-            if(sortCheck(randomArray) == false) {console.log(sortType.options[selected].text + ': false');}
+            if(sortCheck(randomArray) == false) {
+                window.alert('ソートに失敗しました\n失敗したソート\n' + sortType.options[selected].text + ': false');
+            }
 
             difference = endTime - startTime;
             sortType.options[selected].time = difference;
